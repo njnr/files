@@ -78,3 +78,5 @@
 (global-linum-mode t) ;; enable line numbers globally
 (scroll-bar-mode 0)
 (tool-bar-mode 0)
+(add-hook 'python-mode-hook
+	            (lambda () (highlight-lines-matching-regexp ".\\{81\\}" "red")))
