@@ -23,6 +23,6 @@ vim中进入命令模式 ：BundleInstall来安装插件
 若YouCompleteMe出现问题，就获取最新的版本
 git clone --recursive https://github.com/Valloric/YouCompleteMe.git
 然后，进入目录。运行 ./install.sh
-
+mac 或许还需要安装 cmake
 
 
