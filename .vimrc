@@ -34,7 +34,7 @@ set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
 
-colorscheme molokai
+"colorscheme molokai
 "colorscheme solarized
 
 " 每行超过80个的字符用下划线标示

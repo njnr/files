@@ -1,0 +1,22 @@
+1.配置 Vundle 插件管理。有了他，就可以动态管理插件了
+在用户的主目录中建立 .vim 目录，在 .vim 目录中建立 bundle 目录，以后Vundle自动下载的插件都保存在这里。然后，进入 Bundle 目录，使用 git clone 命令下载vundle
+
+相关指令：
+mkdir .vim
+cd .vim
+mkdir bundle
+cd bundle
+git clone https://github.com/gmarik/vundle.git
+
+配置 ~/.vimrc
+filetype off
+set nocompatible
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+后面就可以用Bundle 来管理插件了
+vim中进入命令模式 ：BundleInstall来安装插件
+:BundleClean 用来清除插件，在.vimrc中注释或删除的插件
+
