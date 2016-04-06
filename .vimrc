@@ -3,8 +3,8 @@ set nocompatible
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
-Bundle 'tomasr/molokai'
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'tomasr/molokai'
+"Bundle 'altercation/vim-colors-solarized'
 Bundle 'hdima/python-syntax'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'Yggdroot/indentLine'
@@ -33,8 +33,8 @@ set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
 
 " 显示相关设置
-set t_Co=256
-let g:solarized_termcolors=256
+syntax enable
+"let g:solarized_termcolors=256
 set background=dark
 if has("gui_running")
     colorscheme solarized
@@ -42,9 +42,9 @@ endif
 set guifont=DejaVu\ Sans\ Mono\ 12
 set guioptions=aegic
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+match OverLength /\%79v.\+/
 
-"colorscheme molokai
+colorscheme solarized 
 "colorscheme solarized
 
 " 系统相关设置
