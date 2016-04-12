@@ -1,3 +1,3 @@
 Jekyll 这个貌似挺有意思的，可以产生静态的mk网站。github也对他支持。
-.Xmodmap 通过设置让Ctrl与Capslock交换
+~/.Xmodmap 通过设置让Ctrl与Capslock交换
 
