@@ -8,7 +8,9 @@ Bundle 'gmarik/vundle'
 "Bundle 'altercation/vim-colors-solarized'
 " python语法检查
 Bundle 'hdima/python-syntax'
-"Bundle 'kevinw/pyflakes-vim'
+" 使用PEP8风格检查
+Bundle 'nvie/vim-flake8'
+Bundle 'kevinw/pyflakes-vim'
 " 对齐线插件
 Bundle 'Yggdroot/indentLine'
 " 扩展了％范围
@@ -28,7 +30,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 " 语法检查
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 
 " 编辑相关设置
 set shortmess=atl
@@ -50,7 +52,8 @@ set nobackup
 set langmenu=zh_CN.UTF-8
 set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
-
+" 自动标示多余的空白字符
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " 显示相关设置
 syntax enable
 " 打开状态标尺
@@ -69,7 +72,8 @@ match OverLength /\%79v.\+/
 
 colorscheme solarized 
 "colorscheme solarized
-
+" mac系统下访问剪贴板
+set clipboard=unnamed
 "自动切换当前目录 
 set autochdir
 "自动读取外部修改
@@ -93,6 +97,10 @@ set magic
 "关闭提示音
 set noerrorbells
 set novisualbell
+"隐藏 .pyc
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+"让代码变的漂亮
+let python_highlight_all=1
 "所有数字都以10进制处理
 set nrformats=
 "对YAML支持
@@ -112,5 +120,18 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 "设置切换Buffer快捷键"
 nnoremap <C-N> :bn<CR>
 " nnoremap <C-P> :bp<CR>
-
+" 这个很重要，不然底部无法正常显示airline
 set laststatus=2
+" YouCompleteme
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
