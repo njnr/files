@@ -49,6 +49,8 @@ set softtabstop=4
 set shiftwidth=4
 "不自动备份
 set nobackup
+set nowritebackup
+set noswapfile
 set langmenu=zh_CN.UTF-8
 set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
