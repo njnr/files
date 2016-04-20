@@ -54,8 +54,6 @@ set noswapfile
 set langmenu=zh_CN.UTF-8
 set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
-" 自动标示多余的空白字符
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " 显示相关设置
 syntax enable
 " 打开状态标尺
