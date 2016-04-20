@@ -1,2 +1,5 @@
 Jekyll 这个貌似挺有意思的，可以产生静态的mk网站。github也对他支持。
+这个可以解决 flask-sqlalchemy MySQLdb 找不到的错误
+brew install mysql-connector-c
+pip install mysql-python
 

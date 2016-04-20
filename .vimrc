@@ -2,20 +2,33 @@ filetype off
 set nocompatible
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
+" 插件管理
 Bundle 'gmarik/vundle'
 "Bundle 'tomasr/molokai'
 "Bundle 'altercation/vim-colors-solarized'
+" python语法检查
 Bundle 'hdima/python-syntax'
-Bundle 'kevinw/pyflakes-vim'
+"Bundle 'kevinw/pyflakes-vim'
+" 对齐线插件
 Bundle 'Yggdroot/indentLine'
+" 扩展了％范围
 Bundle 'vim-scripts/matchit.zip'
+" 加强了目录搜索
 Bundle 'kien/ctrlp.vim'
+" 模拟目录结构
 Bundle 'scrooloose/nerdtree'
+" 快速注释取消注释
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kien/rainbow_parentheses.vim'
-" Bundle 'Valloric/YouCompleteMe'
+" 智能补全
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'plasticboy/vim-markdown'
+" 状态栏插件带切换buffer功能
+Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+" 语法检查
+Bundle 'scrooloose/syntastic'
 
 " 编辑相关设置
 set shortmess=atl
@@ -40,7 +53,10 @@ au BufNewFile,BufRead *.py,*.pyw setf python
 
 " 显示相关设置
 syntax enable
+" 打开状态标尺
 set ruler
+" 突出现实当前行
+set cursorline
 "let g:solarized_termcolors=256
 set background=dark
 if has("gui_running")
@@ -61,7 +77,7 @@ set autoread
 "设置历史纪录
 set history=400
 "设置命令行高
-set cmdheight=2
+set cmdheight=1
 "减少刷新
 set lz
 "设置退格键
@@ -81,3 +97,20 @@ set novisualbell
 set nrformats=
 "对YAML支持
 let g:vim_markdown_frontmatter=1
+
+" 以下是对airline的设置
+let g:airline_theme="luna" 
+
+"这个是安装字体后 必须设置此项" 
+let g:airline_powerline_fonts = 1   
+
+ "打开tabline功能,方便查看Buffer和切换，这个功能比较不错"
+ "我还省去了minibufexpl插件，因为我习惯在1个Tab下用多个buffer"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+"设置切换Buffer快捷键"
+nnoremap <C-N> :bn<CR>
+" nnoremap <C-P> :bp<CR>
+
+set laststatus=2
