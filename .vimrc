@@ -123,8 +123,8 @@ nnoremap <C-N> :bn<CR>
 " 这个很重要，不然底部无法正常显示airline
 set laststatus=2
 " YouCompleteme
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_autoclose_preview_window_after_completion=0
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "python with virtualenv support
 py << EOF
 import os
@@ -135,3 +135,16 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
+" Suzzz：  模仿上面，新建python文件时，添加文件头
+
+autocmd BufNewFile *py exec ":call SetPythonTitle()"
+
+func SetPythonTitle()
+    call setline(1,"#!/usr/bin/env python")
+    call append( line("."),"#-*- coding: utf-8 -*-" )
+    call append(line(".")+1," ")
+    call append(line(".")+2, "\# File Name: ".expand("%")) 
+    call append(line(".")+3, "\# Author: imguagua") 
+    call append(line(".")+4, "\# mail: harry.fan@foxmail.com") 
+    call append(line(".")+5, "\# Created Time: ".strftime("%Y-%m-%d",localtime()))    
+endfunc
