@@ -52,6 +52,8 @@ set nobackup
 set nowritebackup
 set noswapfile
 set langmenu=zh_CN.UTF-8
+"中文帮助
+set helplang=cn
 set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
 " 显示相关设置
@@ -60,6 +62,7 @@ syntax enable
 set ruler
 " 突出现实当前行
 set cursorline
+set cursorcolumn
 "let g:solarized_termcolors=256
 set background=dark
 if has("gui_running")
@@ -148,3 +151,7 @@ func SetPythonTitle()
     call append(line(".")+4, "\# mail: harry.fan@foxmail.com") 
     call append(line(".")+5, "\# Created Time: ".strftime("%Y-%m-%d",localtime()))    
 endfunc
+
+if exists('$TMUX')
+"  set term=xterm-256color
+endif
