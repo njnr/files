@@ -63,6 +63,7 @@ set ruler
 " 突出现实当前行
 set cursorline
 set cursorcolumn
+set cc=80
 "let g:solarized_termcolors=256
 set background=dark
 if has("gui_running")
@@ -99,7 +100,7 @@ set hlsearch
 set magic
 "关闭提示音
 set noerrorbells
-set novisualbell
+"set novisualbell
 "隐藏 .pyc
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 "让代码变的漂亮
@@ -138,6 +139,20 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
+" 若是html文件就加入文件模式
+autocmd BufNewFile *html exec ":call SetHtmlTitle()"
+func SetHtmlTitle()
+    call setline(1,"<!DOCTYPE html>")
+    call append(line("."),"<html lang='zh'>")
+    call append(line(".")+1,"<head>")
+    call append(line(".")+2,"<meta charset='UTF-8'>")
+    call append(line(".")+3,"<title></title>")
+    call append(line(".")+4,"</head>")
+    call append(line(".")+5,"<body>")
+    call append(line(".")+6,"</body>")
+    call append(line(".")+7,"</html>")
+endfunc
+    
 " Suzzz：  模仿上面，新建python文件时，添加文件头
 
 autocmd BufNewFile *py exec ":call SetPythonTitle()"
