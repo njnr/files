@@ -7,3 +7,7 @@ pip install mysql-python
 ~/.Xmodmap 通过设置让Ctrl与Capslock交换
 >>>>>>> 10ef0106058c3764aceb5df7f324e687a0530864
 
+让python默认utf－8编码
+import sys
+reload(sys)
+sys.setdefaultencode('utf-8')
