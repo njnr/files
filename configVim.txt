@@ -1,0 +1,81 @@
+首先要安装了补丁字体 powerline/fonts · GitHub
+
+克隆之 然后运行./install.sh
+然后重新设定字体(for gvim)比如 终端也要相应设定(for vim)
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11  "config font for gvim  ”for gvim
+
+需要 用vim 打开   ./vim-airline/doc/airline.txt 目录中的airline.txt  找到下面的一些语句 将其复制到.vimrc中就可以了
+例如 let g:airline_left_sep = ''  这里' '' 在这里显示不出来 如果正确安装了补丁字体会是实心的箭头符号 有一个比较大的实心箭头  和一个比较小的实心箭头  选大的所在的那条语句复制到.vimrc中就可以正确契合的显示箭头符号了
+
+当然要事先在.vimrc中写上
+let g:airline_powerline_fonts=1   
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+        这样就好 
+
+        注意;
+        用gedit等 复制可能不生效  
+        用vim复制粘贴时可能报出关于fenc的警告 这时要输入  :set fenc=
+        置空fenc  就可以了。
+        
+
+让 Terminal/vim 使用 Solarized 配色
+
+在终端里边启动vim，终端的配色会影响vim的配色；vim的配色是叠加到终端的颜色上的，所以很多时候对vim的配色都和设想的不一样。
+
+在线配色网址：   http://bytefluent.com/devify/     ，配置完成后，可以下载配置文件。
+
+1.先改终端的配色为Solarized
+
+现在基本用 ubuntu 做开发，直接在终端(gnome-terminal)里面 vim，但配色效果不甚满意，因为 gvim 的配色是 Solarized，google
+告诉我 Gnome-Terminal 也可以这样配。可以先围观下效果图：
+
+首先安装 git：
+sudo
+apt-get install git-core
+
+然后要设一下 solarized
+theme for GNU ls，不然在 Terminal 下 ls 啥的都灰蒙蒙的，也不舒服：
+git clone git://github.com/seebi/dircolors-solarized.git
+
+dircolor-solarized 有几个配色，你可以去项目那看看说明，我自己用的是 dark256：
+cp ~/dircolors-solarized/dircolors.256dark ~/.dircolors
+eval 'dircolors .dircolors'
+
+设置 Terminal 支持 256 色，
+vim
+.barshrc
+ 并添加 
+ export
+ TERM=xterm-256color
+ ，这样 dircolors for GNU ls 算设置完成了。
+
+ 别忘了先 source .bashrc 。
+
+ 接下来下载 Solarized 的 Gnome-Terminal 配色：
+ git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+
+ cd
+ gnome-terminal-colors-solarized
+  到该目录下运行配色脚本：
+  ./set_dark.sh
+   或
+   ./set_light.sh
+   ，这就算搞定了。
+
+   这里还有一个修改自 sigurdga 这个 Solarized 配色的，就是背景色跟 solarized 的稍微不一样，项目地址是：https://github.com/coolwanglu/gnome-terminal-colors-solarized
+
+   2.改完终端的配色，再改VIM的配色，只要把
+   solarized.vim
+   复制到 ~/.vim/plugin/ 目录下就可以了。
+
+   .vimrc 里边加上：
+
+   syntax enable
+   set background=dark
+   colorscheme solarized
+
+   下载地址：
+
+   https://github.com/altercation/vim-colors-solarized

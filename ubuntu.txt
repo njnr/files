@@ -1,0 +1,11 @@
+修改ctrl CapsLock
+omeone looks like
+
+XKBOPTIONS="ctrl:nocaps"
+
+mine looks like
+XKBOPTIONS="lv3:ralt_alt,compose:menu,ctrl:nocaps"
+
+sudo dpkg -reconfigure keyboard-configuration
+
+The reason this way is better is that it will take effect on the virtual consoles (e.g. Ctrl+Alt+F1) as well as in the graphical desktop

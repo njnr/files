@@ -1,0 +1,19 @@
+建立一个.xmodmap文件
+remove Lock = Caps_Lock
+remove Control = Control_L
+keysym Control_L = Caps_Lock
+keysym Caps_Lock = Control_L
+add Lock = Caps_Lock
+add Control = Control_L
+
+remove Lock = Caps_Lock
+remove Control = Control_R
+keysym Control_R = Caps_Lock
+keysym Caps_Lock = Control_R
+add Lock = Caps_Lock
+add Control = Control_R
+
+ ~/.xmodmap 2>/dev/null
+ 
+ setxkbmap -option ctrl:swapcaps
+ 就行了。而且可以把命令放到~/.bashrc中，重复执行并不影响
