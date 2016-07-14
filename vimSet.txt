@@ -73,3 +73,15 @@ git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
 cd gnome-terminal-colors-solarized 到该目录下运行配色脚本：./set_dark.sh 或./set_light.sh，这就算搞定了。
 
 这里还有一个修改自 sigurdga 这个 Solarized 配色的，就是背景色跟 solarized 的稍微不一样，项目地址是：https://github.com/coolwanglu/gnome-terminal-colors-solarized
+
+Ctags 插件是用来阅读代码时进行跳转的。
+安装
+sudo apt install ctags
+安装完成后在需要索引的目录中
+ctags -R
+
+vim 中设置
+set tags=tags;
+set autochdir
+
+使用 Ctrl+] 跳转 Ctrl + o/t 跳回
