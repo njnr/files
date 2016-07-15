@@ -35,6 +35,7 @@ Bundle 'vim-airline/vim-airline-themes'
 " 编辑相关设置
 set shortmess=atl
 set nu
+set relativenumber
 set go=''
 set confirm
 "自动缩进
@@ -160,7 +161,7 @@ endfunc
 
 " tmux模式下，设定底色
 if exists('$TMUX')
-"  set term=xterm-256color
+    set term=xterm-256color
 endif
 
 " If you prefer the Omni-Completion tip window to close when a selection is
@@ -213,3 +214,7 @@ set tags=tags;
 " set NerdCommenter
 let mapleader=","
 filetype plugin on
+
+" 设置键位以对应自动折行
+noremap <silent><expr> j (v:count==0 ? 'gj':'j')
+noremap <silent><expr> k (v:count==0 ? 'gk':'k')

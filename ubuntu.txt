@@ -1,15 +1,9 @@
-修改ctrl CapsLock
-omeone looks like
+修改ctrl CapsLock 可以放在 /etc/profile
+setxkbmap -option ctrl:swapcaps 
 
-XKBOPTIONS="ctrl:nocaps"
-
-mine looks like
-XKBOPTIONS="lv3:ralt_alt,compose:menu,ctrl:nocaps"
-
-sudo dpkg -reconfigure keyboard-configuration
-
-The reason this way is better is that it will take effect on the virtual consoles (e.g. Ctrl+Alt+F1) as well as in the graphical desktop
 
 重启网络管理 /etc/init.d/network-manager restart
 
 ubuntu 下的vim是不支持系统剪贴板的，所以要安装vim-gnome
+
+
