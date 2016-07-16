@@ -79,3 +79,7 @@ vim
    下载地址：
 
    https://github.com/altercation/vim-colors-solarized
+
+oh my zsh 可以提示指令
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+plugins 中进行设置
