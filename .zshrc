@@ -5,7 +5,7 @@ export ZSH=/Users/Harry/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +49,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump)
+plugins=(git autojump zsh-syntax-highlighting)
 
 # User configuration
 
@@ -95,7 +95,11 @@ alias egrep='egrep --color'
 alias fgrep='fgrep --color'
 
 # Setting UserInfo for Flask Mail
-export MAIL_USERNAME="an1981@gmail.com"
-export MAIL_PASSWORD=""
-export FLASKY_ADMIN="s1981@gmail.com"
+export MAIL_USERNAME="skyfan1981@gmail.com"
+export MAIL_PASSWORD="singleMood"
+export FLASKY_ADMIN="skyfan1981@gmail.com"
 
+alias vi='/usr/local/bin/vim'
+alias runserver='~/onece/aa.sh'
+
+bindkey -v #vi
