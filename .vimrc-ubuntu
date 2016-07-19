@@ -212,7 +212,7 @@ set completeopt-=preview
 set tags=tags;
 
 " set NerdCommenter
-let mapleader=","
+"let mapleader=","
 filetype plugin on
 
 " 设置键位以对应自动折行
