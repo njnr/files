@@ -29,9 +29,8 @@ Bundle 'plasticboy/vim-markdown'
 " 状态栏插件带切换buffer功能
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-" 语法检查
-"Bundle 'scrooloose/syntastic'
-
+" python 自动缩进
+Bundle 'hynek/vim-python-pep8-indent'
 " 编辑相关设置
 set shortmess=atl
 set nu
@@ -43,11 +42,16 @@ set autoindent
 "智能缩进
 set smartindent
 "设置tab
+set cindent
 set expandtab
 set smarttab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+"根据文本类型进行缩进，覆盖掉默认的
+autocmd FileType python set textwidth=79
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
+
 "不自动备份
 set nobackup
 set nowritebackup
@@ -67,13 +71,8 @@ set cursorcolumn
 set cc=80
 "let g:solarized_termcolors=256
 set background=dark
-if has("gui_running")
-    colorscheme solarized
-endif
-set guifont=DejaVu\ Sans\ Mono\ 12
-set guioptions=aegic
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%79v.\+/
+
+"match OverLength /\%79v.\+/
 
 colorscheme solarized 
 "colorscheme solarized
@@ -218,3 +217,4 @@ filetype plugin on
 " 设置键位以对应自动折行
 noremap <silent><expr> j (v:count==0 ? 'gj':'j')
 noremap <silent><expr> k (v:count==0 ? 'gk':'k')
+
