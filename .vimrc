@@ -31,10 +31,15 @@ Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 " 语法检查
 "Bundle 'scrooloose/syntastic'
+" python 自动缩进
+Bundle 'hynek/vim-python-pep8-indent'
+" 自动设置格式排版
+Bundle 'godlygeek/tabular'
 
 " 编辑相关设置
 set shortmess=atl
 set nu
+set relativenumber
 set go=''
 set confirm
 "自动缩进
@@ -42,6 +47,7 @@ set autoindent
 "智能缩进
 set smartindent
 "设置tab
+set cindent
 set expandtab
 set smarttab
 set tabstop=4
@@ -66,11 +72,6 @@ set cursorcolumn
 set cc=80
 "let g:solarized_termcolors=256
 set background=dark
-if has("gui_running")
-    colorscheme solarized
-endif
-set guifont=DejaVu\ Sans\ Mono\ 12
-set guioptions=aegic
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%79v.\+/
 
@@ -211,7 +212,21 @@ if !exists("g:spf13_no_conceal")
     endif
 endif
 
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
+let g:vim_markdown_folding_disabled=1
+
 " Disable the neosnippet preview candidate window
 " When enabled, there can be too much visual noise
 " especially when splits are used.
 set completeopt-=preview
+" set Ctags
+set tags=tags;
+
+" set NerdCommenter
+"let mapleader=","
+filetype plugin on
+
+" 设置键位以对应自动折行
+noremap <silent><expr> j (v:count==0 ? 'gj':'j')
+noremap <silent><expr> k (v:count==0 ? 'gk':'k')
+
