@@ -1,0 +1,10 @@
+如果需要导入上层模块通常需要这样
+import sys
+sys.path.app("..")
+import mod1
+但是这样的方式在大型项目就力不从心了，所以是用包管理的方式比较好.
+为目录建立 __init__.py
+这样例如在 app/mod1.py
+我们就可以使用 from app.mod1 import myclass 来引用对象了
+下级目录调用上级目录的包可以 ..mod1 import myclass
+同级 __init__.py 中的可以 from . import myclass
