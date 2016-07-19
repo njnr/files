@@ -31,6 +31,9 @@ Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 " python 自动缩进
 Bundle 'hynek/vim-python-pep8-indent'
+" 自动设置格式排版
+Bundle 'godlygeek/tabular'
+
 " 编辑相关设置
 set shortmess=atl
 set nu
