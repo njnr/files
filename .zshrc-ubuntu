@@ -105,3 +105,5 @@ alias -s php=vi
 alias -s py=vi
 alias -s rb=vi
 alias -s html=vi
+
+bindkey -v #vi
