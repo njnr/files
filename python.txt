@@ -8,3 +8,6 @@ import mod1
 我们就可以使用 from app.mod1 import myclass 来引用对象了
 下级目录调用上级目录的包可以 ..mod1 import myclass
 同级 __init__.py 中的可以 from . import myclass
+
+可以在virtualenv中使用python3
+virtualenv -p /usr/bin/python3 py3env
