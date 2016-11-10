@@ -1,3 +1,6 @@
 1.linux tools
-    downthemall for firefox
-    universal usb installer for write usb bootdisk
+    1.1 downthemall for firefox
+    1.2 universal usb installer for write usb bootdisk windows
+    1.3 make usb bootdisk command:
+        sudo dd ./ubuntu-iso-name.iso of=/dev/sdX
+    X is usb disk
