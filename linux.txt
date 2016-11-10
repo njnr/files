@@ -7,3 +7,4 @@
     2.2 make usb bootdisk
         sudo dd ./linux-iso-name.iso of=/dev/sdx
         x is usb disk
+        sudo eject /dev/sdx
