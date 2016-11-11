@@ -5,6 +5,6 @@
     2.1 list usb disk
         sudo fdisk -l
     2.2 make usb bootdisk
-        sudo dd ./linux-iso-name.iso of=/dev/sdx
+        sudo dd if=archlinux-2016.11.01-dual.iso of=/dev/sdc
         x is usb disk
         sudo eject /dev/sdx
