@@ -1,6 +1,39 @@
 1.linux tools
     1.1 downthemall for firefox
     1.2 universal usb installer for write usb bootdisk windows
+    1.3 pptpclient connect vpn
+        sudo pacman -S pptpclient
+        sudo pptpsetup --create <vpnname> \
+             --server <server> \
+             --username <username>\
+             --password <password>\
+             --encrypt
+        start connect:
+            sudo pon <vpnname>
+        stop connect:
+            sudo poff <vpnname>
+
+        need change route table:
+            start:
+            ip route add -net 0.0.0.0 netmask 0.0.0.0 dev ppp0
+            stop:
+            ip route del -net 0.0.0.0 netmask 0.0.0.0 dev ppp0
+
+        net change /tec/resolv.conf
+            nameserver 8.8.8.8
+
+        /etc/ppp/chap-secrets
+        /etc/ppp/peers/<vpnname>
+        pon <vpnname> debug dump logfd 2 nodetach
+        ifconfig
+        ip route add default dev ppp0
+        /etc/ppp/ip-up.d/
+        01-routes.sh
+            #!/bin/bash
+            rote add default gw $4
+
+
+        
 2.linux commands:
     2.1 list usb disk
         sudo fdisk -l
