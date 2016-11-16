@@ -55,8 +55,10 @@ xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
 eval `dbus-launch --sh-syntax --exit-with-session`
+#export LANG=zh_CN.UTF-8
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
+exec fcitx &
 
 exec i3
