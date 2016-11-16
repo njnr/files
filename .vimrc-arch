@@ -71,7 +71,7 @@ set ruler
 " 突出现实当前行
 set cursorline
 set cursorcolumn
-set cc=80
+"set cc=80
 "let g:solarized_termcolors=256
 set background=dark
 
@@ -221,3 +221,7 @@ filetype plugin on
 noremap <silent><expr> j (v:count==0 ? 'gj':'j')
 noremap <silent><expr> k (v:count==0 ? 'gk':'k')
 
+"设置背景透明
+hi Normal  ctermfg=252 ctermbg=none
+
+map <F8> <Esc>:NERDTree <CR>
