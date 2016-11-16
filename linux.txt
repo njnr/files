@@ -31,7 +31,12 @@
         01-routes.sh
             #!/bin/bash
             rote add default gw $4
-
+    1.4 cut screen
+        shutter
+    1.5 pdf reader
+        zathura
+    1.6 pic reader
+        feh
 
         
 2.linux commands:
@@ -41,3 +46,17 @@
         sudo dd if=archlinux-2016.11.01-dual.iso of=/dev/sdc
         x is usb disk
         sudo eject /dev/sdx
+    2.3 shutdown computer
+        poweroff
+        shutdown -h now
+        shutdown -h 10   #shutdown afert 10 min
+    2.4 load cdroom
+        lsblk
+        mkdir /mnt/cdrom
+        mount -t iso9660 -o ro /dev/cdrom /mnt/cdrom
+        mount
+        df
+
+3.linux still
+    3.1 list not find modules
+         /usr/lib/systemd/systemd-modules-load
