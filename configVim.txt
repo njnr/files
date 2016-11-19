@@ -83,3 +83,5 @@ vim
 oh my zsh 可以提示指令
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 plugins 中进行设置
+
+$ ssh-keygen -t rsa -C "youremail@example.com"
