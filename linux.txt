@@ -56,6 +56,8 @@
         mount -t iso9660 -o ro /dev/cdrom /mnt/cdrom
         mount
         df
+    2.5 change shell
+	chsh -s /bin/zsh
 
 3.linux still
     3.1 list not find modules
