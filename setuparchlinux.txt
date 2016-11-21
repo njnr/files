@@ -1,0 +1,28 @@
+1 准备工作
+    1.1 下载安装文件 iso
+    https://mirrors.ustc.edu.cn
+    1.2 制作安装u盘
+    #dd if=xxx.iso of=/dev/sdb <--不一定是sdb
+2 分区操作
+    2.1cfdisk 进行分区，激活启动分区
+    一般是：
+        sda1 /boot 挂载启动分区
+        sda2 /mnt  挂载主要分区
+        sda3 /swap 交换分区,通常是内存的一半就好
+        mkfs.ext4 /sda1 格式化分区
+        mkfs.ext4 /sda2
+        mkswap /dev/sda3 格式化交换分区
+        swapon /dev/sda3 计划swap分区
+    2.2 挂载分区
+        mount /dev/sda1 /boot
+        mount /dev/sda2 /mnt
+
+3 安装系统
+    3.1 设定源
+    /etc/pacman.conf 最后面加入
+    [archlinuxcn]
+    SigLevel = Optional TrustAll
+    Server = http://repo.archlinuxcn.org/$arch
+    /etc/pacman.d/mirrorlist 最前面加入
+
+        
