@@ -35,6 +35,7 @@
         shutter
     1.5 pdf reader
         zathura
+        zathura-pdf-poppler <-- must setup
     1.6 pic reader
         feh
 
