@@ -1,0 +1,2 @@
+1. 撤销未提交修改
+git stash pop

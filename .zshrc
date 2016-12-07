@@ -100,6 +100,6 @@ export MAIL_PASSWORD="singleMood"
 export FLASKY_ADMIN="skyfan1981@gmail.com"
 
 alias vi='/usr/local/bin/vim'
-alias runserver='~/onece/aa.sh'
+#alias runserver='~/onece/aa.sh'
 
 bindkey -v #vi

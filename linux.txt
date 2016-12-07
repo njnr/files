@@ -38,6 +38,8 @@
         zathura-pdf-poppler <-- must setup
     1.6 pic reader
         feh
+    1.7 mind map
+        xmind
 
         
 2.linux commands:
