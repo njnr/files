@@ -40,6 +40,8 @@
         feh
     1.7 mind map
         xmind
+    1.7 flashplug
+        pacman -S flashplugin
 
         
 2.linux commands:
