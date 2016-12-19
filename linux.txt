@@ -46,6 +46,7 @@
         pacman -Syu
         pacman -S mongodb
         systemctl start mongodb.service
+        if error 58 then pacman -S icu
 
         
 2.linux commands:
