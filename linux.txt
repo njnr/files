@@ -40,8 +40,12 @@
         feh
     1.7 mind map
         xmind
-    1.7 flashplug
+    1.8 flashplug
         pacman -S flashplugin
+    1.9 mongodb
+        pacman -Syu
+        pacman -S mongodb
+        systemctl start mongodb.service
 
         
 2.linux commands:
