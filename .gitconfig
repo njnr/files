@@ -1,0 +1,5 @@
+[credential]
+	helper = cache --timeout=3600
+[user]
+	email = skyfan1981@gmail.com
+	name = imguagua

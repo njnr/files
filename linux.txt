@@ -47,6 +47,8 @@
         pacman -S mongodb
         systemctl start mongodb.service
         if error 58 then pacman -S icu
+    2.0 update flash
+        pacman -S flashplugin
 
         
 2.linux commands:

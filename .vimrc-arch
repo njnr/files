@@ -9,8 +9,8 @@ Bundle 'altercation/vim-colors-solarized'
 " python语法检查
 Bundle 'hdima/python-syntax'
 " 使用PEP8风格检查
-Bundle 'nvie/vim-flake8'
-Bundle 'kevinw/pyflakes-vim'
+"Bundle 'nvie/vim-flake8'
+"Bundle 'kevinw/pyflakes-vim'
 " 对齐线插件
 Bundle 'Yggdroot/indentLine'
 " 扩展了％范围
@@ -25,7 +25,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 " 智能补全
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'plasticboy/vim-markdown'
+"Bundle 'plasticboy/vim-markdown'
 " 状态栏插件带切换buffer功能
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
