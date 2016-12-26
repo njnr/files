@@ -111,7 +111,7 @@ let python_highlight_all=1
 "所有数字都以10进制处理
 set nrformats=
 "对YAML支持
-let g:vim_markdown_frontmatter=1
+"let g:vim_markdown_frontmatter=1
 
 " 以下是对airline的设置
 let g:airline_theme="luna" 
@@ -214,7 +214,9 @@ set completeopt-=preview
 set tags=tags;
 
 " set NerdCommenter
-"let mapleader=","
+" 将leader键设为,
+let mapleader=","
+
 filetype plugin on
 
 " 设置键位以对应自动折行
@@ -225,3 +227,10 @@ noremap <silent><expr> k (v:count==0 ? 'gk':'k')
 hi Normal  ctermfg=252 ctermbg=none
 
 map <F8> <Esc>:NERDTree <CR>
+
+"设置easymotion
+nmap s <Plug>(easymotion-s2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
