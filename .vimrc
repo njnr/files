@@ -5,12 +5,12 @@ call vundle#rc()
 " 插件管理
 Bundle 'gmarik/vundle'
 "Bundle 'tomasr/molokai'
-"Bundle 'altercation/vim-colors-solarized'
+Bundle 'altercation/vim-colors-solarized'
 " python语法检查
 Bundle 'hdima/python-syntax'
 " 使用PEP8风格检查
-Bundle 'nvie/vim-flake8'
-Bundle 'kevinw/pyflakes-vim'
+"Bundle 'nvie/vim-flake8'
+"Bundle 'kevinw/pyflakes-vim'
 " 对齐线插件
 Bundle 'Yggdroot/indentLine'
 " 扩展了％范围
@@ -21,20 +21,22 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 " 快速注释取消注释
 Bundle 'scrooloose/nerdcommenter'
+" 括号高亮
 Bundle 'kien/rainbow_parentheses.vim'
 " 智能补全
 Bundle 'Valloric/YouCompleteMe'
+" 智能搜索
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'plasticboy/vim-markdown'
+"Bundle 'plasticboy/vim-markdown'
 " 状态栏插件带切换buffer功能
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-" 语法检查
-"Bundle 'scrooloose/syntastic'
 " python 自动缩进
 Bundle 'hynek/vim-python-pep8-indent'
 " 自动设置格式排版
 Bundle 'godlygeek/tabular'
+" 快速执行当前文件
+Bundle 'thinca/vim-quickrun'
 
 " 编辑相关设置
 set shortmess=atl
@@ -53,6 +55,10 @@ set smarttab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+"根据文本类型进行缩进，覆盖掉默认的
+autocmd FileType python set textwidth=79
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
+
 "不自动备份
 set nobackup
 set nowritebackup
@@ -69,11 +75,11 @@ set ruler
 " 突出现实当前行
 set cursorline
 set cursorcolumn
-set cc=80
+"set cc=80
 "let g:solarized_termcolors=256
 set background=dark
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%79v.\+/
+
+"match OverLength /\%79v.\+/
 
 colorscheme solarized 
 "colorscheme solarized
@@ -109,7 +115,7 @@ let python_highlight_all=1
 "所有数字都以10进制处理
 set nrformats=
 "对YAML支持
-let g:vim_markdown_frontmatter=1
+"let g:vim_markdown_frontmatter=1
 
 " 以下是对airline的设置
 let g:airline_theme="luna" 
@@ -130,15 +136,6 @@ set laststatus=2
 " YouCompleteme
 let g:ycm_autoclose_preview_window_after_completion=0
 "map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 " 若是html文件就加入文件模式
 autocmd BufNewFile *html exec ":call SetHtmlTitle()"
@@ -170,7 +167,7 @@ endfunc
 
 " tmux模式下，设定底色
 if exists('$TMUX')
-"  set term=xterm-256color
+    set term=xterm-256color
 endif
 
 " If you prefer the Omni-Completion tip window to close when a selection is
@@ -212,21 +209,47 @@ if !exists("g:spf13_no_conceal")
     endif
 endif
 
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
-let g:vim_markdown_folding_disabled=1
-
 " Disable the neosnippet preview candidate window
 " When enabled, there can be too much visual noise
 " especially when splits are used.
 set completeopt-=preview
+
 " set Ctags
 set tags=tags;
 
 " set NerdCommenter
-"let mapleader=","
+" 将leader键设为,
+let mapleader=","
+
 filetype plugin on
 
 " 设置键位以对应自动折行
 noremap <silent><expr> j (v:count==0 ? 'gj':'j')
 noremap <silent><expr> k (v:count==0 ? 'gk':'k')
 
+"设置背景透明
+hi Normal  ctermfg=252 ctermbg=none
+
+map <F8> <Esc>:NERDTree <CR>
+
+"设置easymotion
+"nmap s <Plug>(easymotion-s2)
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s <Plug>(easymotion-overwin-f)
+nmap s <Plug>(easymotion-overwin-f2)
+
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" thinca/vim-quickrun
+let g:quickrun_config = {
+    \   "_" : {
+        \       "outputter" : "message",
+        \   },
+    \}
+
+let g:quickrun_no_default_key_mappings = 1
+    nmap <Leader>r <Plug>(quickrun)
+    map <F10> :QuickRun<CR>
