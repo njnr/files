@@ -81,3 +81,4 @@
                 MatchIsKeyboard "on"
                 Option "XkbOptions" "ctrl:swapcaps"
             EndSection
+    3.3 vimim archlinux https://aur.archlinux.org/packages/vimim/ 
