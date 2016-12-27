@@ -37,6 +37,10 @@ Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'godlygeek/tabular'
 " 快速执行当前文件
 Bundle 'thinca/vim-quickrun'
+" 中文输入法支持
+"Bundle 'imim/vimim'
+"python代码补全
+Bundle 'davidhalter/jedi-vim'
 
 " 编辑相关设置
 set shortmess=atl
@@ -80,9 +84,7 @@ set cursorcolumn
 set background=dark
 
 "match OverLength /\%79v.\+/
-
 colorscheme solarized 
-"colorscheme solarized
 " mac系统下访问剪贴板
 set clipboard=unnamed
 "自动切换当前目录 
@@ -108,6 +110,11 @@ set magic
 "关闭提示音
 set noerrorbells
 "set novisualbell
+
+
+" 将leader键设为,
+let mapleader=","
+
 "隐藏 .pyc
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 "让代码变的漂亮
@@ -218,8 +225,6 @@ set completeopt-=preview
 set tags=tags;
 
 " set NerdCommenter
-" 将leader键设为,
-let mapleader=","
 
 filetype plugin on
 
@@ -238,10 +243,10 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 nmap s <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
 
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+"map  / <Plug>(easymotion-sn)
+"omap / <Plug>(easymotion-tn)
+"map  n <Plug>(easymotion-next)
+"map  N <Plug>(easymotion-prev)
 
 " thinca/vim-quickrun
 let g:quickrun_config = {
@@ -253,3 +258,6 @@ let g:quickrun_config = {
 let g:quickrun_no_default_key_mappings = 1
     nmap <Leader>r <Plug>(quickrun)
     map <F10> :QuickRun<CR>
+
+"自定义的一些键盘映射
+nmap <leader>w :w!<cr>
