@@ -16,3 +16,5 @@ virtualenv 模式下导出 requirements.txt
 pip freeze > requirements.txt
 安装对应包
 pip install -r requirements.txt
+
+pip install jedi 提供python补全
