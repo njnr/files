@@ -38,9 +38,11 @@ Bundle 'godlygeek/tabular'
 " 快速执行当前文件
 Bundle 'thinca/vim-quickrun'
 " 中文输入法支持
-"Bundle 'imim/vimim'
-"python代码补全
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'vimim/vimim'
+" HTML CSS 快速编辑插件
+"Bundle 'mattn/emmet-vim'
+" python 自动补全
+"Bundle 'davidhalter/jedi-vim'
 
 " 编辑相关设置
 set shortmess=atl
@@ -84,7 +86,9 @@ set cursorcolumn
 set background=dark
 
 "match OverLength /\%79v.\+/
+
 colorscheme solarized 
+"colorscheme solarized
 " mac系统下访问剪贴板
 set clipboard=unnamed
 "自动切换当前目录 
@@ -110,11 +114,6 @@ set magic
 "关闭提示音
 set noerrorbells
 "set novisualbell
-
-
-" 将leader键设为,
-let mapleader=","
-
 "隐藏 .pyc
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 "让代码变的漂亮
@@ -124,6 +123,10 @@ set nrformats=
 "对YAML支持
 "let g:vim_markdown_frontmatter=1
 
+"自定义的一些键盘映射
+nmap <leader>w :w!<cr>
+" 将leader键设为,
+let mapleader=","
 " 以下是对airline的设置
 let g:airline_theme="luna" 
 
@@ -141,7 +144,7 @@ nnoremap <C-N> :bn<CR>
 " 这个很重要，不然底部无法正常显示airline
 set laststatus=2
 " YouCompleteme
-let g:ycm_autoclose_preview_window_after_completion=0
+" let g:ycm_autoclose_preview_window_after_completion=0
 "map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " 若是html文件就加入文件模式
@@ -177,21 +180,39 @@ if exists('$TMUX')
     set term=xterm-256color
 endif
 
+
+" YCM
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-let g:acp_enableAtStartup = 0
+"let g:acp_enableAtStartup = 0
 
 " enable completion from tags
-let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_collect_identifiers_from_tags_files = 1
 
 " remap Ultisnips for compatibility for YCM
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_complete_in_comments = 1
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+" 比较喜欢用tab来选择补全...
+function! MyTabFunction ()
+    let line = getline('.')
+    let substr = strpart(line, -1, col('.')+1)
+    let substr = matchstr(substr, "[^ \t]*$")
+    if strlen(substr) == 0
+        return "\<tab>"
+    endif
+    return pumvisible() ? "\<c-n>" : "\<c-x>\<c-o>"
+endfunction
+inoremap <tab> <c-r>=MyTabFunction()<cr>
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -259,5 +280,3 @@ let g:quickrun_no_default_key_mappings = 1
     nmap <Leader>r <Plug>(quickrun)
     map <F10> :QuickRun<CR>
 
-"自定义的一些键盘映射
-nmap <leader>w :w!<cr>
