@@ -1,0 +1,2 @@
+1.1 将static自动设置为静态文件根目录
+app = Flask(__name__, static_url_path='')

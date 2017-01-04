@@ -49,6 +49,8 @@
         if error 58 then pacman -S icu
     2.0 update flash
         pacman -S flashplugin
+    2.1 zim
+        local wiki
 
         
 2.linux commands:
