@@ -27,7 +27,6 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Valloric/YouCompleteMe'
 " 智能搜索
 Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'plasticboy/vim-markdown'
 " 状态栏插件带切换buffer功能
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
@@ -35,12 +34,18 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'hynek/vim-python-pep8-indent'
 " 自动设置格式排版
 Bundle 'godlygeek/tabular'
+" 语法高亮Markdown
+Bundle 'plasticboy/vim-markdown'
+" Markdown 即时查看
+" sudo npm -g install instant-markdown-d
+Bundle 'suan/vim-instant-markdown'
 " 快速执行当前文件
+" ctrl+r
 Bundle 'thinca/vim-quickrun'
 " 中文输入法支持
 "Bundle 'imim/vimim'
 "python代码补全
-"Bundle 'davidhalter/jedi-vim'
+Bundle 'davidhalter/jedi-vim'
 "javascript 语法检查
 "sudo npm install -g jshint
 Bundle 'wookiehangover/jshint.vim'
