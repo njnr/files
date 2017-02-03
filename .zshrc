@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/Harry/.oh-my-zsh
+  export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +53,7 @@ plugins=(git autojump zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -82,24 +82,30 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Setting dircolors
-if brew list | grep coreutils > /dev/null ; then
-  PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-  alias ls='ls -F --show-control-chars --color=auto'
-  eval `gdircolors -b $HOME/.dir_colors`
+if [ -x /usr/bin/dircolors ]; then 
+    alias ls='ls --color=auto' 
+    alias dir='dir --color=auto' 
+    alias vdir='vdir --color=auto' 
+    alias grep='grep --color=auto' 
+    alias fgrep='fgrep --color=auto' 
+    alias egrep='egrep --color=auto' 
+    alias tree='tree -C'
 fi
 
-alias grep='grep --color'
-alias egrep='egrep --color'
-alias fgrep='fgrep --color'
+export TERM=xterm-256color 
+eval `dircolors ~/.dircolors`
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Setting UserInfo for Flask Mail
-export MAIL_USERNAME="skyfan1981@gmail.com"
-export MAIL_PASSWORD="singleMood"
-export FLASKY_ADMIN="skyfan1981@gmail.com"
-
-alias vi='/usr/local/bin/vim'
-#alias runserver='~/onece/aa.sh'
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# 设置默认程序开启相应文件
+alias -s gz='tar -xzvf'
+alias -s tgz='tar -xzvf'
+alias -s zip='unzip'
+alias -s bz2='tar -xjvf'
+alias -s php=vi
+alias -s py=vi
+alias -s rb=vi
+alias -s html=vi
+#alias vi='/usr/bin/vim'
 
 bindkey -v #vi
