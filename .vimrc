@@ -7,10 +7,37 @@ Bundle 'gmarik/vundle'
 "Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
 " python语法检查
-Bundle 'hdima/python-syntax'
+"Bundle 'hdima/python-syntax'
 " 使用PEP8风格检查
 "Bundle 'nvie/vim-flake8'
 "Bundle 'kevinw/pyflakes-vim'
+"语法检查
+Bundle 'scrooloose/syntastic' 
+let g:syntastic_error_symbol='>>'
+let g:syntastic_warning_symbol='>'
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_enable_highlighting=1
+let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
+let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+let g:syntastic_html_checkers=['tidy', 'jshint']
+" 修改高亮的背景色, 适应主题
+highlight SyntasticErrorSign guifg=white guibg=black
+
+" to see error location list
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_loc_list_height = 5
+function! ToggleErrors()
+    let old_last_winnr = winnr('$')
+    lclose
+    if old_last_winnr == winnr('$')
+        " Nothing was closed, open syntastic error location panel
+        Errors
+    endif
+endfunction
+"nnoremap <Leader>s :call ToggleErrors()<cr>
+
 " 对齐线插件
 Bundle 'Yggdroot/indentLine'
 " 扩展了％范围
@@ -48,7 +75,7 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'davidhalter/jedi-vim'
 "javascript 语法检查
 "sudo npm install -g jshint
-Bundle 'wookiehangover/jshint.vim'
+"Bundle 'wookiehangover/jshint.vim'
 
 " 编辑相关设置
 set shortmess=atl
