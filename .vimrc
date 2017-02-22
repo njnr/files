@@ -77,6 +77,9 @@ Bundle 'davidhalter/jedi-vim'
 "sudo npm install -g jshint
 "Bundle 'wookiehangover/jshint.vim'
 
+Bundle 'othree/html5.vim'
+Bundle 'pangloss/vim-javascript'
+
 " 编辑相关设置
 set shortmess=atl
 set nu
@@ -95,8 +98,10 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 "根据文本类型进行缩进，覆盖掉默认的
-autocmd FileType python set textwidth=79
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
+"autocmd FileType python set textwidth=79
+"autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
+
+autocmd FileType javascript setlocal noautoindent tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
 
 "不自动备份
 set nobackup
@@ -121,7 +126,8 @@ set background=dark
 "match OverLength /\%79v.\+/
 colorscheme solarized 
 " mac系统下访问剪贴板
-set clipboard=unnamed
+"set clipboard+=unnamed
+set clipboard=unnamedplus
 "自动切换当前目录 
 set autochdir
 "自动读取外部修改
@@ -184,12 +190,12 @@ autocmd BufNewFile *html exec ":call SetHtmlTitle()"
 func SetHtmlTitle()
     call setline(1,"<!DOCTYPE html>")
     call append(line("."),"<html lang='zh'>")
-    call append(line(".")+1,"<head>")
-    call append(line(".")+2,"<meta charset='UTF-8'>")
-    call append(line(".")+3,"<title></title>")
-    call append(line(".")+4,"</head>")
-    call append(line(".")+5,"<body>")
-    call append(line(".")+6,"</body>")
+    call append(line(".")+1,"   <head>")
+    call append(line(".")+2,"       <meta charset='UTF-8'>")
+    call append(line(".")+3,"       <title></title>")
+    call append(line(".")+4,"   </head>")
+    call append(line(".")+5,"   <body>")
+    call append(line(".")+6,"   </body>")
     call append(line(".")+7,"</html>")
 endfunc
     
@@ -229,13 +235,13 @@ let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+"autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " Haskell post write lint and check with ghcmod
 " $ `cabal install ghcmod` if missing and ensure
