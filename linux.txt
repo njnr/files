@@ -51,6 +51,15 @@
         pacman -S flashplugin
     2.1 zim
         local wiki
+    2.2 vim clipboard
+        pacman -S abs
+        abs extra/vim
+        cp -r /var/abs/extra/vim ~/ && ~/vim
+
+        --with-x=yes \
+        makepkg -s
+        pacman -U vim
+
 
         
 2.linux commands:
