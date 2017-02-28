@@ -82,6 +82,10 @@
     2.5 change shell
 	chsh -s /bin/zsh
 
+    2.6 seach text in files 
+        find .|xargs grep -ri "abc"
+        find .|xargs grep -ri "abc" -l 
+
 3.linux still
     3.1 list not find modules
          /usr/lib/systemd/systemd-modules-load
