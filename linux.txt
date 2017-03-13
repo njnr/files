@@ -97,3 +97,7 @@
                 Option "XkbOptions" "ctrl:swapcaps"
             EndSection
     3.3 vimim archlinux https://aur.archlinux.org/packages/vimim/ 
+4.linux Server
+    4.1 MariaDB
+    run server:systemctl start mysqld
+    manage:dbevear
