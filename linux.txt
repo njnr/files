@@ -36,8 +36,10 @@
     1.5 pdf reader
         zathura
         zathura-pdf-poppler <-- must setup
+        evince
     1.6 pic reader
         feh
+        mirge
     1.7 mind map
         xmind
     1.8 flashplug
@@ -101,3 +103,4 @@
     4.1 MariaDB
     run server:systemctl start mysqld
     manage:dbevear
+
