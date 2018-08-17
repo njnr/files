@@ -63,6 +63,8 @@
         pacman -U vim
     2.3 music
         mpc, ncmpcpp
+    2.4 oh my zsh
+        upgrade_oh_my_zsh
 
 
         
