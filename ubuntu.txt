@@ -1,9 +1,0 @@
-修改ctrl CapsLock 可以放在 /etc/profile
-setxkbmap -option ctrl:swapcaps 
-
-
-重启网络管理 /etc/init.d/network-manager restart
-
-ubuntu 下的vim是不支持系统剪贴板的，所以要安装vim-gnome
-
-
