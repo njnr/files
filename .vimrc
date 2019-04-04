@@ -4,40 +4,10 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 " 插件管理
 Bundle 'gmarik/vundle'
-"Bundle 'tomasr/molokai'
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
 " python语法检查
-"Bundle 'hdima/python-syntax'
-" 使用PEP8风格检查
-"Bundle 'nvie/vim-flake8'
-"Bundle 'kevinw/pyflakes-vim'
-"语法检查
-Bundle 'scrooloose/syntastic' 
-let g:syntastic_error_symbol='>>'
-let g:syntastic_warning_symbol='>'
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_enable_highlighting=1
-let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
-let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-let g:syntastic_html_checkers=['tidy', 'jshint']
-" 修改高亮的背景色, 适应主题
-highlight SyntasticErrorSign guifg=white guibg=black
-
-" to see error location list
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_loc_list_height = 5
-function! ToggleErrors()
-    let old_last_winnr = winnr('$')
-    lclose
-    if old_last_winnr == winnr('$')
-        " Nothing was closed, open syntastic error location panel
-        Errors
-    endif
-endfunction
-"nnoremap <Leader>s :call ToggleErrors()<cr>
-
+Bundle 'hdima/python-syntax'
 " 对齐线插件
 Bundle 'Yggdroot/indentLine'
 " 扩展了％范围
@@ -51,7 +21,7 @@ Bundle 'scrooloose/nerdcommenter'
 " 括号高亮
 Bundle 'kien/rainbow_parentheses.vim'
 " 智能补全
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 " 智能搜索
 Bundle 'Lokaltog/vim-easymotion'
 " 状态栏插件带切换buffer功能
@@ -61,24 +31,8 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'hynek/vim-python-pep8-indent'
 " 自动设置格式排版
 Bundle 'godlygeek/tabular'
-" 语法高亮Markdown
-Bundle 'plasticboy/vim-markdown'
-" Markdown 即时查看
-" sudo npm -g install instant-markdown-d
-Bundle 'suan/vim-instant-markdown'
 " 快速执行当前文件
-" ctrl+r
 Bundle 'thinca/vim-quickrun'
-" 中文输入法支持
-"Bundle 'imim/vimim'
-"python代码补全
-Bundle 'davidhalter/jedi-vim'
-"javascript 语法检查
-"sudo npm install -g jshint
-"Bundle 'wookiehangover/jshint.vim'
-
-Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
 
 " 编辑相关设置
 set shortmess=atl
@@ -98,10 +52,8 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 "根据文本类型进行缩进，覆盖掉默认的
-"autocmd FileType python set textwidth=79
-"autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
-
-autocmd FileType javascript setlocal noautoindent tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
+autocmd FileType python set textwidth=79
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
 
 "不自动备份
 set nobackup
@@ -121,13 +73,12 @@ set cursorline
 set cursorcolumn
 "set cc=80
 "let g:solarized_termcolors=256
-set background=dark
+"set background=dark
 
 "match OverLength /\%79v.\+/
-colorscheme solarized 
+colorscheme molokai 
 " mac系统下访问剪贴板
-"set clipboard+=unnamed
-set clipboard=unnamedplus
+"set clipboard=unnamed
 "自动切换当前目录 
 set autochdir
 "自动读取外部修改
@@ -150,12 +101,13 @@ set hlsearch
 set magic
 "关闭提示音
 set noerrorbells
-"set novisualbell
 
 
 " 将leader键设为,
 let mapleader=","
+let g:mapleader=","
 
+"set novisualbell
 "隐藏 .pyc
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 "让代码变的漂亮
@@ -190,12 +142,12 @@ autocmd BufNewFile *html exec ":call SetHtmlTitle()"
 func SetHtmlTitle()
     call setline(1,"<!DOCTYPE html>")
     call append(line("."),"<html lang='zh'>")
-    call append(line(".")+1,"   <head>")
-    call append(line(".")+2,"       <meta charset='UTF-8'>")
-    call append(line(".")+3,"       <title></title>")
-    call append(line(".")+4,"   </head>")
-    call append(line(".")+5,"   <body>")
-    call append(line(".")+6,"   </body>")
+    call append(line(".")+1,"<head>")
+    call append(line(".")+2,"<meta charset='UTF-8'>")
+    call append(line(".")+3,"<title></title>")
+    call append(line(".")+4,"</head>")
+    call append(line(".")+5,"<body>")
+    call append(line(".")+6,"</body>")
     call append(line(".")+7,"</html>")
 endfunc
     
@@ -235,13 +187,13 @@ let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " Enable omni completion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-"autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " Haskell post write lint and check with ghcmod
 " $ `cabal install ghcmod` if missing and ensure
@@ -281,8 +233,8 @@ map <F8> <Esc>:NERDTree <CR>
 "设置easymotion
 "nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-nmap s <Plug>(easymotion-overwin-f)
-nmap s <Plug>(easymotion-overwin-f2)
+nmap <leader>s <Plug>(easymotion-overwin-f)
+nmap <leader>s <Plug>(easymotion-overwin-f2)
 
 "map  / <Plug>(easymotion-sn)
 "omap / <Plug>(easymotion-tn)
@@ -301,4 +253,4 @@ let g:quickrun_no_default_key_mappings = 1
     map <F10> :QuickRun<CR>
 
 "自定义的一些键盘映射
-nmap <leader>w :w!<cr>
+nmap <leader>w :w!<CR>
